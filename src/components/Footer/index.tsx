@@ -8,7 +8,7 @@ export function Footer() {
     <footer>
       <Styled.Text>
         Made with <IoHeart /> by{" "}
-        <Styled.Link href="https://twitter.com/synowski_maciej">
+        <Styled.Link href="https://twitter.com/kavinm">
           Maciej Synowski
         </Styled.Link>
       </Styled.Text>
