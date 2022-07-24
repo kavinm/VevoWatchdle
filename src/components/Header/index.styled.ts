@@ -39,8 +39,9 @@ export const Content = styled.div`
 `;
 
 export const Logo = styled.h1`
-  color: ${({ theme }) => theme.text};
-  font-family: "Roboto Serif", serif;
+  color: black;
+  text-align:left;
+  font-family: "Gill Sans", sans-serif;
   text-transform: uppercase;
   width: max-content;
 

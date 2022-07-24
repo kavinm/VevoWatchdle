@@ -3,11 +3,18 @@ import React from "react";
 import { GuessType } from "../../types/guess";
 import { Song } from "../../types/song";
 import { playTimes } from "../../constants";
-
+import "./index.css";
+import { ethers } from "ethers";
 import { Button, Guess, Player, Search, Result } from "../";
-
 import * as Styled from "./index.styled";
 
+//****
+//import json
+//import musicviddle from './utils/MusicViddle.json';
+//fill in address
+const mVAddress = "";
+declare const window: any;
+const { ethereum } = window;
 interface Props {
   guesses: GuessType[];
   todaysSolution: Song;
@@ -37,6 +44,20 @@ export function Game({
       />
     );
   }
+  async function guesser(mVguess: any) {
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const connectedContract = new ethers.Contract(
+        mVAddress,
+        mVguess.abi,
+        signer
+      );
+
+      const tx = await connectedContract.guess(mVguess);
+      await tx.wait();
+    }
+  }
   return (
     <>
       {guesses.map((guess: GuessType, index) => (
@@ -49,15 +70,14 @@ export function Game({
       ))}
       <Player id={todaysSolution.youtubeId} currentTry={currentTry} />
       <Search currentTry={currentTry} setSelectedSong={setSelectedSong} />
-
       <Styled.Buttons>
         <Button onClick={skip}>
           {currentTry === 5
-            ? "Poddaj się"
-            : `Pomiń +${playTimes[currentTry] / 1000}s`}
+            ? "Give up"
+            : `Skip +${playTimes[currentTry] / 1000}s`}
         </Button>
-        <Button variant="green" onClick={guess}>
-          Zgadnij
+        <Button variant="green" onClick={() => guesser(guess)}>
+          Enter
         </Button>
       </Styled.Buttons>
     </>
