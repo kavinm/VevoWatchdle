@@ -32,7 +32,7 @@ export const songs = [
   {
     artist: "Daft Punk",
     name: "Get Lucky",
-    youtubeId: "NaQ083rNUwc",
+    youtubeId: "4D7u5KF7SP8",
   },
   
 ];

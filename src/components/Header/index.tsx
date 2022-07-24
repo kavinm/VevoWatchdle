@@ -1,8 +1,8 @@
 import React from "react";
 import { IoInformationCircleOutline } from "react-icons/io5";
-
+import './index.css';
 import * as Styled from "./index.styled";
-
+import mlogo from "./mlogo.png";
 interface Props {
   openInfoPopUp: () => void;
 }
@@ -17,7 +17,11 @@ export function Header({ openInfoPopUp }: Props) {
           width={30}
           height={30}
         />
-        <Styled.Logo>Music Viddle</Styled.Logo>
+       <img className="mlogo" src ={mlogo} />
+        <Styled.Logo> 
+          
+        Music Viddle
+        </Styled.Logo>
 
         <a href="#"></a>
       </Styled.Content>

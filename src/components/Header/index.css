@@ -3,8 +3,12 @@
     padding-top:-30px ;
 }
 .title{
-    padding-top:-30px ;
+    text-align: center;
 }
 .head{
-    background-color: #133337;
+    background-color: 	#ece2c2;
+}
+.mlogo{
+    padding-left:90px;
+    width: 60px;
 }
